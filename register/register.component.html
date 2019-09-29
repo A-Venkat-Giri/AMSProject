@@ -1,0 +1,23 @@
+<div class="col-md-4 offset-md-4 card card-body mt-5">
+    <h4 class="text-center">Please Register!!!</h4>
+    <form [formGroup]="registerForm" (ngSubmit)="printForm(registerForm)">
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" formControlName="email" class="form-control">
+            <div *ngIf="email.touched && email.invalid">
+                <p class="alert alert-danger" *ngIf="email.errors.required">Enter email properly</p>
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control">
+        </div>
+        <div class="btn-group col-md-12">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <button class="btn btn-primary" type="submit"  [disabled]="registerForm.invalid">Register</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,99 @@
+< <div class="container">
+  <input type="search" class="form-control" [(ngModel)]="search">
+  <div class="col-md-4 float-left card card-body" *ngFor="let asset of adminservice.viewallassets">
+    <img src="{{asset.assetimg}}" alt="" class="card-img-top" style="height:350px">
+    <h4 class="text-center">
+      {{asset.assetname}}</h4>
+    <h5>{{asset.assetid}}</h5>
+    <h5>{{asset.assetname}}</h5>
+    <h6>{{asset.quantity}}</h6>
+    <p>{{asset.assetdes}}</p>
+    <p>{{asset.status}}</p>
+
+    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModalLong"
+      (click)="selectViewallassets(asset)">
+      Update
+    </button>
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">please update the asset</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #viewallassetsform="ngForm" (ngSubmit)="updateviewallassets(viewallassetsform)">
+              <div class="form-group">
+                <label for="assetname">AssetName</label>
+                <input type="text" name="assetname" #name="ngModel" [(ngModel)]="selectviewallassets.assetname"
+                  class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="assetid" #name="ngModel" [(ngModel)]="selectviewallassets.assetid"
+                  class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="status">status</label>
+                <input type="text" name="status" #name="ngModel" [(ngModel)]="selectviewallassets.status"
+                  class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" name="quantity" #name="ngModel" [(ngModel)]="selectviewallassets.quantity"
+                  class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="assetimg">imageurl</label>
+                <textarea name="assetimg" type="text" #quantity="ngModel" [(ngModel)]="selectviewallassets.assetimg"
+                  class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="assetdes">description</label>
+                <textarea name="assetdes" col="20" rows="20" class="form-control" #description="ngModel"
+                  [(ngModel)]="selectviewallassets.assetdes"></textarea>
+              </div>
+
+
+              <button class="btn btn-success float-right" type="submit">submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn btn-outline-danger" (click)="deleteviewallassets(asset)">Remove product</div>
+
+  </div>
+  </div>
+
+
+
+  <div class="container">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>AssetID</th>
+          <th>AssetName</th>
+          <th>AssetDes</th>
+          <th>quantity</th>
+          <th>status</th>
+        </tr>
+        <tr *ngFor="let asset of adminservice.viewallassets">
+          <td>{{asset.assetid}}</td>
+          <td>{{asset.assetname}}</td>
+          <td>{{asset.assetdes}}</td>
+          <td>{{asset.quantity}}</td>
+          <td>{{asset.status}}</td>
+        </tr>
+      </thead>
+    </table>
+  </div>

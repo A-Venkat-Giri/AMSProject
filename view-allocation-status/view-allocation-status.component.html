@@ -1,0 +1,11 @@
+<form class=" col-md-4 offset-md-4 card card-body mt-4" #statusForm="ngForm" (ngSubmit)="statusView(statusForm)">
+  <div class="form-group">
+    <label for="allocationid">Allocation Id</label>
+    <input type="text" class="form-control" name="allocationid" #allocationid="ngModel" ngModel required> 
+    <div *ngIf="allocationid.touched && allocationid.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="statusForm.invalid">Submit</button>
+  <p class="text-danger" *ngIf="isApproved !== undefined">{{isApproved.status}}</p>
+</form>

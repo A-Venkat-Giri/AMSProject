@@ -1,0 +1,43 @@
+<form class=" col-md-4 offset-md-4 card card-body mt-4" #raiseForm="ngForm" (ngSubmit)="raiseRequest(raiseForm)">
+  
+  <div class="form-group">
+    <label for="assetid">AssetId</label>
+    <input type="text" name="assetid" #assetid="ngModel" ngModel
+      class="form-control" required>
+      <div *ngIf="assetid.touched && assetid.invalid" >
+        <p class="alert alert-danger" > *This field is required</p>
+</div>
+</div>
+  <div class="form-group">
+    <label for="empno">Emp No</label>
+    <input type="number" class="form-control" name="empno"  #empno="ngModel" ngModel required> 
+    <div *ngIf="empno.touched && empno.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  <div class="form-group">
+    <label for="allocationdate">Allocation Date</label>
+    <input type="date" class="form-control" name="allocationdate" #allocationdate="ngModel" ngModel required> 
+    <div *ngIf="allocationdate.touched && allocationdate.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  <div class="form-group">
+    <label for="releasedate">Release Date</label>
+    <input type="date" class="form-control" name="releasedate" #releasedate="ngModel" ngModel required> 
+    <div *ngIf="releasedate.touched && releasedate.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="number" class="form-control" name="quantity" #quantity="ngModel" ngModel required> 
+    <div *ngIf="quantity.touched && quantity.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  <div class="btn-group col-md-12">
+  <button type="submit" class="btn btn-primary"[disabled]="raiseForm.invalid">Raise Allocation</button>
+</div>
+  
+</form>

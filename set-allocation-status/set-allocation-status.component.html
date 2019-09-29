@@ -1,0 +1,19 @@
+<form class=" col-md-4 offset-md-4 card card-body mt-4" #setstatus="ngForm" (ngSubmit)="setAllocationStatus(setstatus)">
+  <div class="form-group">
+    <label for="allocationid">Allocation ID</label>
+    <input type="text" class="form-control" name="allocationid" #allocationid="ngModel" ngModel required> 
+    <div *ngIf="allocationid.touched && allocationid.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <input type="text" class="form-control"  name="status" #status="ngModel" ngModel required> 
+    <div *ngIf="status.touched && status.invalid" >
+      <p class="alert alert-danger" > *This field is required</p>
+</div>
+  </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="setstatus.invalid">Set Status</button>
+  
+  </form>

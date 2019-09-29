@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>AllocationID</th>
+          <th>AssetID</th>
+          <th>Employee no</th>
+          <th>Allocation date</th>
+          <th>Release date</th>
+          <th>Quantity</th>
+        </tr>
+        <tr *ngFor="let allocation of adminservice.viewallallocation">
+          <td>{{allocation.allocationid}}</td>
+          <td>{{allocation.assetid}}</td>
+          <td>{{allocation.empno}}</td>
+          <td>{{allocation.allocationdate}}</td>
+          <td>{{allocation.releasedate}}</td>
+          <td>{{allocation.quantity}}</td>
+        </tr>
+      </thead>
+    </table>
+  </div>  
+  

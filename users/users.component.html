@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Salary</th>
+                <th>Degree</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userService.users; index as i">
+                <td>{{i}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.company}}</td>
+                <td>{{user.salery}}</td>
+                <td>{{user.degree}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="flag"></div>
+<ng-template #trueBlock>The condition is true</ng-template>
+<ng-template #falseBlock>The condition is false</ng-template>
+<div [ngSwitch]="name">
+    <p *ngSwitchCase="'mahesh'">mahesh</p>
+    <p *ngSwitchCase="'suresh'">suresh</p>
+    <p *ngSwitchCase="'ramesh'">ramesh</p>
+    <p *ngSwitchDefault>default</p>
+</div>

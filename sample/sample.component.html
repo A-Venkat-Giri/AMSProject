@@ -1,0 +1,24 @@
+<h1 [class]="headerclass">{{name}}</h1>
+<img [src]="imgURL" alt="">
+<p [class.bg-danger]="flag" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quisquam tenetur expedita nobis suscipit quia repellat est, non, blanditiis quis, veniam consequuntur. Distinctio autem et voluptatum dolore labore. Praesentium, laudantium?</p>
+<h3 [style.background]="flag ?'red':'blue'">Style binding</h3>
+<table class="table table-bordered"><tr>
+<th>slno</th>
+<th>name</th>
+<th [attr.colspan]="columnspan">marks</th>
+</tr>
+<tr>
+    <td>1</td>
+    <td>vinyas</td>
+    <td>25</td>
+    <td>55</td>
+</tr>
+
+<tr>
+    <td>2</td>
+    <td>bt</td>
+    <td>25</td>
+    <td>55</td>
+</tr>
+
+</table>
